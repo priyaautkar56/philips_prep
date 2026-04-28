@@ -9,20 +9,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: priyaautkar56/philips-tests:latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: |
-          pip install pytest pytest-playwright requests
-          playwright install --with-deps
 
       - name: Run API tests
         run: pytest tests/test_api.py -v
