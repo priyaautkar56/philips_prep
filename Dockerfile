@@ -1,3 +1,4 @@
+# philips-prep test automation environment
 FROM python:3.11-slim
 
 WORKDIR /app
