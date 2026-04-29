@@ -8,7 +8,7 @@ def test_valid_login(page: Page):
     page.locator("button[type='submit']").click()
     expect(page.locator(".flash.success")).to_be_visible()
 
-def test_invalid_login(page: Page):
+def test_invalid_password_login(page: Page):
     page.goto("https://the-internet.herokuapp.com/login")
     page.locator("#username").fill("tomsmith")
     page.locator("#password").fill("wrongpassword")
@@ -16,7 +16,7 @@ def test_invalid_login(page: Page):
     expect(page.locator(".flash.error")).to_be_visible()
     expect(page.locator(".flash.error")).to_contain_text("Your password is invalid")  
 
-def test_invalid_login(page: Page):
+def test_invalid_username_login(page: Page):
     page.goto("https://the-internet.herokuapp.com/login") 
     page.locator("#username").fill("priya") 
     page.locator("#password").fill("mypassword")
